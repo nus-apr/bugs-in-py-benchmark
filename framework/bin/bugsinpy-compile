@@ -66,6 +66,8 @@ else
 	   exit
 	fi
   source env/bin/activate
+  pip install wheel
+  pip3 install wheel 
   dos2unix $work_dir/bugsinpy_requirements.txt
 fi
 ###Add pythonpath

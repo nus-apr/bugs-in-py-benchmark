@@ -5,47 +5,36 @@ RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y
 
 # install experiment dependencies
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends  \
-    automake \
-    autopoint \
     ca-certificates \
     python3 \
     python3-pip \
-    cmake \
-    curl \
-    gcc \
+    python3-venv \
+    python3-wheel \
+    python3-dev \
     libpython3-dev \
-    libtool \
-    nasm \
     nano \
     openssl \
+    gcc \
+    g++ \
+    build-essential \
+    autoconf \
+    libtool \
     pkg-config \
     psmisc \
     python3 \
-    libc6-dev-i386 \
-    gcc-multilib \
-    g++-multilib \
-    clang \
-    software-properties-common \
     git \
-    build-essential \
-    subversion \
-    perl \
     curl \
-    maven \
-    gradle \
-    ant \
     unzip \
-    cpanminus \
     make \
-    flex \
-    bison \
     libssl-dev \
+    dos2unix \
     libelf-dev \
     bc \
     wget
     
-# Java version
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+RUN pip3 install wheel
+RUN pip install wheel
 
 # Timezone
 ENV TZ=Asia/Singapore

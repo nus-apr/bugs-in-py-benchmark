@@ -4,7 +4,7 @@ import shutil
 import subprocess
 from typing import List, Tuple
 
-x = open("metadata.json", "w")
+x = open("meta-data.json", "w")
 
 projects: List[Tuple[str, int]] = [
     ("ansible", 18),

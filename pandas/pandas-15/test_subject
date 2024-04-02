@@ -10,9 +10,9 @@ EXIT_CODE=1
 
 if [ -z "$TEST_CLASS" ];
 then
-    python3 /bugsinpy/bin/bugsinpy-test -a -w $PWD
+    /bugsinpy/framework/bin/bugsinpy-test
 else
-    python3 /bugsinpy/bin/bugsinpy-test -w $PWD -t $TEST_CLASS
+    /bugsinpy/framework/bin/bugsinpy-test -t $TEST_CLASS
 fi
 
 EXIT_CODE=$?
