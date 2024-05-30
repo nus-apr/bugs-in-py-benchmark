@@ -45,7 +45,6 @@ if [ ! -d "$project_location" ]; then
 fi
 
 ###Check if bug exist
-
 if [ "$bug_id" == "" ]; then 
   if [ ! -d "$project_location/bugs/$bug_id" ]; then
      echo "Bug number $bug_id does not exist, please check the bug id"
@@ -94,7 +93,7 @@ cd "$project_location/bugs/$bug_id"
 pythonpath_set=""
 buggy_commit=""
 fix_commit=""
-
+pythonpath=""
 ###Read bug.info file
 DONE=false
 until $DONE ;do
@@ -117,6 +116,9 @@ fi
 done < bug.info
 echo ""
 echo "Summary for Bug $project_name-$bug_id"
+echo "--------------------------------------------------------------------------------"
+echo "Pythonpath"
+echo "   $pythonpath_set"
 echo "--------------------------------------------------------------------------------"
 echo "Revision id"
 echo "	$fix_commit"

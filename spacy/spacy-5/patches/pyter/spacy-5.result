@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/spacy/spacy-5/src/spacy/language.py
+[[[ Patch Node ]]]
+if isinstance(golds, list):
+    return scorer

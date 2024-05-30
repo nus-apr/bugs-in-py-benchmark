@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-53/src/pandas/core/indexing.py
+[[[ Patch Node ]]]
+if isinstance(key, int):
+    return None

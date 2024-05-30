@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-146/src/pandas/core/dtypes/missing.py
+[[[ Patch Node ]]]
+if isinstance(right, numpy.ndarray) and right.dtype.type is numpy.object_:
+    return ((left == right) | isna(left) & isna(right)).all()

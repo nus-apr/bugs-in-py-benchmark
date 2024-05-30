@@ -4,7 +4,7 @@ import shutil
 import subprocess
 from typing import List, Tuple
 
-x = open("meta-data.json", "w")
+x = open("meta-data-test.json", "w")
 
 projects: List[Tuple[str, int]] = [
     ("ansible", 18),
@@ -48,13 +48,24 @@ for name, bug_count in projects:
         fix_commit = "N/A"
         bug_commit = "N/A"
         github_url = "N/A"
+        pythonpath = ""
+        failed_test = []
+        isTest = False
         for i, line in enumerate(lines):
+            if line.startswith("Pythonpath"):
+                pythonpath = lines[i + 1].strip()
             if line.startswith("Revision id"):
                 fix_commit = lines[i + 1].strip()
             if line.startswith("Buggy id"):
                 bug_commit = lines[i + 1].strip()
             if line.startswith("Github URL"):
                 github_url = line.split(":")[1].strip()
+            if line.startswith("Triggering test file"):
+                if not isTest:
+                    failed_test.append(lines[i + 1].strip())
+                    isTest = True
+                else:
+                    failed_test.append(lines[i].strip())
         print(data)
         result.append(
             {
@@ -63,13 +74,14 @@ for name, bug_count in projects:
                 "bug_id": f"{name}-{bug}",
                 "test_timeout": 5,
                 "language": "python",
+                "pythonpath": pythonpath,
                 "build_script": "build_subject",
                 "config_script": "config_subject",
                 "clean_script": "clean_subject",
                 "test_script": "test_subject",
                 "passing_test_identifiers": [],
                 "count_pos": 0,
-                "failing_test_identifiers": [],
+                "failing_test_identifiers": failed_test,
                 "count_neg": 0,
                 "bug_commit": bug_commit,
                 "fix_commit": fix_commit,

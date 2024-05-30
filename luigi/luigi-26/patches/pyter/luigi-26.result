@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/luigi/luigi-26/src/luigi/contrib/hadoop_jar.py
+[[[ Patch Node ]]]
+if not isinstance(job.jar(), type(None)):
+    logger.error("Can't find jar: %s, full path %s", job.jar(), os.path.abspath(job.jar()))

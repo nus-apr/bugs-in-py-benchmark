@@ -21,7 +21,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libtool \
     pkg-config \
     psmisc \
-    python3 \
+    zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev wget llvm \
+    libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev \
+    libgdbm-dev libnss3-dev libedit-dev libc6-dev \
     git \
     curl \
     unzip \
@@ -29,12 +32,20 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libssl-dev \
     dos2unix \
     libelf-dev \
-    bc \
-    wget
-    
+    bc 
+
+WORKDIR /opt
+RUN git clone --depth=1 https://github.com/pyenv/pyenv.git pyenv
+ENV PYENV_ROOT=/opt/pyenv
+RUN git clone https://github.com/pyenv/pyenv-virtualenv.git "$PYENV_ROOT/plugins/pyenv-virtualenv"
+ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+
 
 RUN pip3 install wheel
 RUN pip install wheel
+
+RUN ln -sf /usr/local/bin/pip3 /usr/bin/pip3
+RUN ln -sf /usr/local/bin/pip /usr/bin/pip
 
 # Timezone
 ENV TZ=Asia/Singapore

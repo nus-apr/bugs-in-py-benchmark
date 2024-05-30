@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/scrapy/scrapy-27/src/scrapy/downloadermiddlewares/redirect.py
+[[[ Patch Node ]]]
+if isinstance(response.headers, scrapy.http.headers.Headers):
+    return response

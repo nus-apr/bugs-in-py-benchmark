@@ -1,0 +1,5 @@
+Filename : /experiment/bugsinpy/scrapy/scrapy-2/src/scrapy/utils/datatypes.py
+[[[ Patch Node ]]]
+if not isinstance(self.limit, type(None)):
+    while len(self) >= self.limit:
+        self.popitem(last=False)

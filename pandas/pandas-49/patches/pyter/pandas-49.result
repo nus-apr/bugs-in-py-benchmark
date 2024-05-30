@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-49/src/pandas/core/strings.py
+[[[ Patch Node ]]]
+if isinstance(x, pandas._libs.missing.NAType):
+    return x

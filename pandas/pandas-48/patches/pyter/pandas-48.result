@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-48/src/pandas/core/groupby/generic.py
+[[[ Patch Node ]]]
+except TypeError:
+    result = result.reshape(1, -1)
