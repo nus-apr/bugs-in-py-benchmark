@@ -1,0 +1,3 @@
+Filename : /experiment/bugsinpy/luigi/luigi-25/src/luigi/contrib/redshift.py
+[[[ Patch Node ]]]
+self.s3_load_path

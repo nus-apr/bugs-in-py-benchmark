@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-106/src/pandas/core/indexes/base.py
+[[[ Patch Node ]]]
+if isinstance(tgt_values, type(None)):
+    tgt_values = target._ndarray_values

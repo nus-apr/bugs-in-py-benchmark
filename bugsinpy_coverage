@@ -1,0 +1,7 @@
+bug_info_path="bugsinpy_bug.info"
+information=$(<${bug_info_path})
+information="$( cut -d '"' -f 2 <<< "$information" )";
+py_version=${information:0:5}
+pyenv install $py_version -s
+pyenv virtualenv $py_version "temp"
+pyenv local "temp"

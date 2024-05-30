@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/luigi/luigi-14/src/luigi/scheduler.py
+[[[ Patch Node ]]]
+if self.disable_failures and self.failures.num_failures() >= self.disable_failures:
+    return True

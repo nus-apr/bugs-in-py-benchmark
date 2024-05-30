@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/youtube-dl/youtube-dl-11/src/youtube_dl/utils.py
+[[[ Patch Node ]]]
+if isinstance(int_str, int):
+    int_str = str(int_str)

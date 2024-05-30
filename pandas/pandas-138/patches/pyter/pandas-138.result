@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-138/src/pandas/core/algorithms.py
+[[[ Patch Node ]]]
+if not (numpy.issubdtype(x.dtype, numpy.number)):
+    x = x.astype(numpy.number)

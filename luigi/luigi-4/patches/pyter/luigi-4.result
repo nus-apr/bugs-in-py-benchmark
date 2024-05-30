@@ -1,0 +1,5 @@
+Filename : /experiment/bugsinpy/luigi/luigi-4/src/luigi/contrib/redshift.py
+[[[ Patch Node ]]]
+if self.columns and len(self.columns) > 0:
+    colnames = ','.join([x[0] for x in self.columns])
+    colnames = '({})'.format(colnames)

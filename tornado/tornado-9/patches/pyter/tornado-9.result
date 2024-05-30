@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/tornado/tornado-9/src/tornado/httputil.py
+[[[ Patch Node ]]]
+if isinstance(args, type(None)):
+    return url

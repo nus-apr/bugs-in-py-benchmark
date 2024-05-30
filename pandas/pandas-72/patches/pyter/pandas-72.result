@@ -1,0 +1,11 @@
+Filename : /experiment/bugsinpy/pandas/pandas-72/src/pandas/core/indexing.py
+[[[ Patch Node ]]]
+if isinstance(pi, slice):
+    s = v
+elif isinstance(pi, tuple) and all((com.is_null_slice(idx) or com.is_full_slice(idx, len(self.obj)) for idx in pi)):
+    s = v
+else:
+    s._consolidate_inplace()
+    s = s.copy()
+    s._data = s._data.setitem(indexer=pi, value=v)
+    s._maybe_update_cacher(clear=True)

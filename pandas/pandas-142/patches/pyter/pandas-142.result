@@ -1,0 +1,6 @@
+Filename : /experiment/bugsinpy/pandas/pandas-142/src/pandas/core/algorithms.py
+[[[ Patch Node ]]]
+if isinstance(arr, numpy.ndarray) and arr.dtype.type is numpy.bool_:
+    out_arr[res_indexer] = arr[res_indexer] ^ arr[lag_indexer]
+else:
+    out_arr[res_indexer] = arr[res_indexer] - arr[lag_indexer]

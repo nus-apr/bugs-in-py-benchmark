@@ -54,7 +54,7 @@ fi
 rm -r -f env/
 
 ###Add environment
-python3 -m venv env
+# python3 -m venv env
 
 ###Activate environment
 if [ -d "env/Scripts" ]; then
@@ -65,9 +65,7 @@ else
 	   echo "Please install dos2unix (sudo apt-get dos2unix)"
 	   exit
 	fi
-  source env/bin/activate
-  pip install wheel
-  pip3 install wheel 
+  # source env/bin/activate
   dos2unix $work_dir/bugsinpy_requirements.txt
 fi
 ###Add pythonpath
@@ -75,6 +73,7 @@ pythonpath_set=""
 pythonpath_without_folder=""
 buggy_commit=""
 fix_commit=""
+
 
 ###Read bug.info file
 DONE=false
@@ -125,7 +124,7 @@ done < "$work_dir/bugsinpy_bug.info"
 #dos2unix $work_dir/bugsinpy_requirements.txt
 #pip install -r "$work_dir/bugsinpy_requirements.txt"
 if grep -q '[^[:space:]]' "$work_dir/bugsinpy_requirements.txt"; then
-    sed -e '/^\s*#.*$/d' -e '/^\s*$/d' $work_dir/bugsinpy_requirements.txt | xargs -I {} pip install {}
+    cat "$work_dir/bugsinpy_requirements.txt" | sed -e '/^\s*#.*$/d' -e '/^\s*$/d' | xargs -n 1 pip install
 fi
 
 for index in "${!run_setup[@]}"
@@ -138,10 +137,11 @@ done
 ###Install requirement
 #pip install -r "$work_dir/bugsinpy_requirements.txt"
 if grep -q '[^[:space:]]' "$work_dir/bugsinpy_requirements.txt"; then
-    sed -e '/^\s*#.*$/d' -e '/^\s*$/d' $work_dir/bugsinpy_requirements.txt | xargs -I {} pip install {}
+    cat "$work_dir/bugsinpy_requirements.txt" | sed -e '/^\s*#.*$/d' -e '/^\s*$/d' | xargs -n 1 pip install
 fi
-deactivate
 
+pip install -e .
+# deactivate
 
 ###Add pythonpath
   if [ "$pythonpath_set" != "" ]; then

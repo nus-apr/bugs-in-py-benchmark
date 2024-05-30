@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/tqdm/tqdm-4/src/tqdm/_tqdm.py
+[[[ Patch Node ]]]
+if isinstance(total, type(None)):
+    total = 0

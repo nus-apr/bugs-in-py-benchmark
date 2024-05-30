@@ -1,0 +1,3 @@
+Filename : /experiment/bugsinpy/luigi/luigi-22/src/luigi/scheduler.py
+[[[ Patch Node ]]]
+isinstance(self.last_active, int) and self.last_active + config.worker_disconnect_delay < time.time()

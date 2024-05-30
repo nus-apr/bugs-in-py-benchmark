@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-112/src/pandas/core/indexes/interval.py
+[[[ Patch Node ]]]
+if isinstance(target, pandas.core.indexes.category.CategoricalIndex):
+    return np.arange(len(self), dtype='intp')

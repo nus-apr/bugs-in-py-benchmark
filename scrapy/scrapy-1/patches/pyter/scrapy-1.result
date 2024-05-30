@@ -1,0 +1,5 @@
+Filename : /experiment/bugsinpy/scrapy/scrapy-1/src/scrapy/spidermiddlewares/offsite.py
+[[[ Patch Node ]]]
+if domain and url_pattern.match(domain):
+    message = 'allowed_domains accepts only domains, not URLs. Ignoring URL entry %s in allowed_domains.' % domain
+    warnings.warn(message, URLWarning)

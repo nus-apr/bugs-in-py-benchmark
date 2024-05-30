@@ -1,0 +1,4 @@
+Filename : /experiment/bugsinpy/pandas/pandas-36/src/pandas/core/dtypes/missing.py
+[[[ Patch Node ]]]
+if not (isinstance(obj, numpy.ndarray) and numpy.issubdtype(obj.dtype, numpy.float)):
+    return obj.isna()

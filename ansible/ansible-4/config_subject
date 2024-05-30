@@ -5,5 +5,11 @@ project_name=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
 bug_id=$(echo $script_dir | rev | cut -d "/" -f 1 | rev)
 dir_name=/experiment/$benchmark_name/$project_name/$bug_id
 cd $dir_name/src
-
+bug_info_path="$dir_name/src/bugsinpy_bug.info"
+information=$(<${bug_info_path})
+information="$( cut -d '"' -f 2 <<< "$information" )";
+py_version=${information:0:5}
+pyenv install $py_version -s
+pyenv virtualenv $py_version "temp"
+pyenv local "temp"
 exit 0
