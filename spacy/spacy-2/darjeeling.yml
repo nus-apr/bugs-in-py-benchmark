@@ -22,7 +22,7 @@ program:
   tests:
     type: pytest
     workdir: /experiment/bugsinpy/spacy/spacy-2/src
-    tests: 
+    tests:
     - spacy/tests/regression/test_issue5137.py
 
 transformations:

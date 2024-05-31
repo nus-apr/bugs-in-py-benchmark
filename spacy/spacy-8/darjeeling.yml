@@ -22,8 +22,8 @@ program:
   tests:
     type: pytest
     workdir: /experiment/bugsinpy/spacy/spacy-8/src
-    tests: 
-    - spacy/tests/matcher/test_matcher_logic.py::test_numeric
+    tests:
+    - spacy/tests/matcher/test_matcher_logic.py
 
 transformations:
   schemas:

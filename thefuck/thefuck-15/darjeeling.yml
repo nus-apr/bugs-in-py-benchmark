@@ -1,0 +1,45 @@
+
+version: '1.0'
+seed: 0
+threads: 3
+localization:
+  type: spectrum
+  metric: tarantula
+algorithm:
+  type: exhaustive
+coverage:
+  method:
+    type: coverage.py
+
+program:
+  image: darjeeling-bugsinpy-thefuck-thefuck_15-runtime
+  language: python
+  source-directory: /experiment/bugsinpy/thefuck/thefuck-15/src
+  build-instructions:
+    time-limit: 1
+    steps: []
+    steps-for-coverage: []
+  tests:
+    type: pytest
+    workdir: /experiment/bugsinpy/thefuck/thefuck-15/src
+    tests:
+    - tests/rules/test_git_add.py
+
+transformations:
+  schemas:
+    - type: delete-statement
+    - type: replace-statement
+    - type: prepend-statement
+    - type: append-statement
+optimizations:
+  use-scope-checking: false
+  use-syntax-scope-checking: false
+  ignore-dead-code: false
+  ignore-equivalent-insertions: false
+  ignore-untyped-returns: false
+  ignore-string-equivalent-snippets: false
+  ignore-decls: false
+  only-insert-executed-code: false
+resource-limits:
+  candidates: 10000
+    

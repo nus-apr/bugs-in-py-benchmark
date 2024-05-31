@@ -17,7 +17,8 @@ sudo -E pyenv local temp
 sudo -E pyenv rehash
 
 # Give pyenv path higher priority && install deps
+sudo -E PATH="$PYENV_PATH:$PATH" /opt/pyenv/versions/temp/bin/python -m pip install --upgrade pip
 sudo -E PATH="$PYENV_PATH:$PATH" bash /setup/$benchmark_name/$project_name/$bug_id/build_subject
-sudo -E PATH="$PYENV_PATH:$PATH" /opt/pyenv/versions/temp/bin/python -m pip install coverage
+sudo -E PATH="$PYENV_PATH:$PATH" /opt/pyenv/versions/temp/bin/python -m pip install coverage pytest
 # Remove any extra pytest init
 rm -rf pytest.ini

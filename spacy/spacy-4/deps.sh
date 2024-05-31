@@ -21,5 +21,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget
 
 cd /
-git clone https://github.com/hzxin/bugs-in-py-benchmark.git 
+git clone https://github.com/nus-apr/bugs-in-py-benchmark.git
 mv bugs-in-py-benchmark bugsinpy
+
+

@@ -22,7 +22,8 @@ program:
   tests:
     type: pytest
     workdir: /experiment/bugsinpy/keras/keras-36/src
-    tests: 
+    tests:
+    - tests/keras/layers/convolutional_test.py
 
 transformations:
   schemas:
