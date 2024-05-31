@@ -140,9 +140,6 @@ if grep -q '[^[:space:]]' "$work_dir/bugsinpy_requirements.txt"; then
     cat "$work_dir/bugsinpy_requirements.txt" | sed -e '/^\s*#.*$/d' -e '/^\s*$/d' | xargs -n 1 pip install
 fi
 
-pip install -e .
-# deactivate
-
 ###Add pythonpath
   if [ "$pythonpath_set" != "" ]; then
      if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then

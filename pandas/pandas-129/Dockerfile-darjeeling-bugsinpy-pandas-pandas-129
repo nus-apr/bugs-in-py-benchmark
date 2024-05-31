@@ -1,9 +1,0 @@
-FROM hzhenxin/darjeeling
-ADD . /setup/bugsinpy/pandas/pandas-129/
-RUN echo "hzx5959hzx\n" | sudo -S bash -c 'groupadd -g 1011 cerberus' 
-RUN echo "hzx5959hzx\n" | sudo -S bash -c "cut -d: -f1 /etc/passwd | xargs -i usermod -g cerberus {} "
-COPY --from=bugsinpy-pandas-pandas-129 --chown=darjeeling:cerberus /experiment /experiment
-COPY --from=bugsinpy-pandas-pandas-129 --chown=darjeeling:cerberus /logs /logs
-COPY --from=bugsinpy-pandas-pandas-129 --chown=darjeeling:cerberus /root/ /home/darjeeling/
-RUN echo "hzx5959hzx\n" | sudo -S bash /setup/bugsinpy/pandas/pandas-129/deps.sh 
-ENTRYPOINT ["/bin/sh"]

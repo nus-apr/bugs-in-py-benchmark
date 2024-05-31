@@ -6,9 +6,13 @@ with open("meta-data.json") as f:
     data = json.load(f)
     for entry in data:
         dest_dir = join(entry["subject"],entry["bug_id"])
+        if os.path.exists(join(dest_dir, "Dockerfile")):
+            os.remove(join(dest_dir, "Dockerfile"))
+        if os.path.exists(join(dest_dir, "darjeeling.yml")):
+            os.remove(join(dest_dir, "darjeeling.yml"))
         # if entry["subject"] == "spacy":
         #     shutil.copy("spacy_config_subject", join(dest_dir, "config_subject"))
-        # darjeeling_dir = join(dest_dir, "darjeeling")
+        darjeeling_dir = join(dest_dir, "darjeeling")
         # pyter_dir = join(dest_dir, "pyter")
         #if os.path.exists(join(dest_dir, "entry.sh")):
         #    os.remove(join(dest_dir, "entry.sh"))
