@@ -1,2 +1,5 @@
 
 projects/pandas/bugs/Bugs info.xlsx
+*.yml
+*.log.*
+Dockerfile
