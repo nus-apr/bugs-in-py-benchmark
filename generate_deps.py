@@ -20,7 +20,10 @@ with open("meta-data.json") as f:
         # os.makedirs(pyter_dir, exist_ok=True)
         # shutil.rmtree(darjeeling_dir)
         # shutil.copy2("pyter_instr.sh", join(pyter_dir, "instrument.sh"))
-        # shutil.copy2("darjeeling_instr.sh", join(darjeeling_dir, "instrument.sh"))
+        if entry["subject"] != "matplotlib" and entry["subject"] != "pandas":
+            shutil.copy2("darjeeling_instr.sh", join(darjeeling_dir, "instrument.sh"))
+        else:
+            shutil.copy2("matplotlib_pandas_darjeeling_instr.sh", join(darjeeling_dir, "instrument.sh"))
         # shutil.copy2("build_subject", join(dest_dir, "build_subject"))
         # shutil.copy2("config_subject", join(dest_dir, "config_subject"))
         # shutil.copy2("deps.sh",join(dest_dir,"deps.sh"))
